@@ -28,27 +28,33 @@ const collectEmployees = function() {
   return employeesArray;
 };
 
-// Create new Employee object using the provided constructor
+// Create new Employee object
 function employee(firstName, lastName, salary){
  this.firstName = firstName;  
  this.lastName = lastName;    
  this.salary = salary;            
 }
 
-// // Display added employees on the page
-// const displayEmployees = function(employees) {
-//   // Clear any existing content in the #show-employees element
-// }
-
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
-}
+  console.log('The total number of employees is ' + employeesArray.length);
+  let sumOfAllSalaries =  0;
+  for (let i=0; i < employeesArray.length; i++) {
+    sumOfAllSalaries += parseInt(employeesArray[i].salary);
+  }
+  const averageSalary = sumOfAllSalaries / employeesArray.length;
+  console.log('The average salary is $' + averageSalary.toFixed(2));
+};
 
-// Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
-}
+
+  // TODO: Select and display a random employee 
+  const index = Math.floor(Math.random() * employeesArray.length);
+  console.log('A randomly selected employee to buy the doughnuts for today is: ' + employeesArray[index].firstName +  ' '  + employeesArray[index].lastName);
+
+};
+
 
 /*
   ====================
@@ -80,9 +86,9 @@ const displayEmployees = function(employeesArray) {
 
     const salaryCell = document.createElement("td");
     // Format the salary as currency
-    salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US",{
-      style:"currency",
-      currency:"USD"
+    salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD"
     });
 
     newTableRow.append(salaryCell);
