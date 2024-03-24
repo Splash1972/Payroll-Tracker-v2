@@ -37,13 +37,6 @@ const collectEmployees = function() {
   return employeesArray;
 };
 
-// Create new Employee object
-function employee(firstName, lastName, salary){
- this.firstName = firstName;  
- this.lastName = lastName;    
- this.salary = salary;            
-}
-
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
