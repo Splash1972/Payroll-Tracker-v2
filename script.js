@@ -14,7 +14,16 @@ const collectEmployees = function() {
       alert("You must enter a valid entry.");
     } else {
       const lastName = prompt(`Please enter the employee's last name: `);
-      const salary = prompt(`Please enter the employee's salary: `);
+      const salary = parseInt(prompt(`Please enter the employee's salary: `));
+      var number = parseFloat(salary);
+
+      if (!isNaN(number)) {
+        console.log("The number you entered is: " + number);
+      } else {
+        alert("Your input was not a number.");
+        continue;
+      }
+
       const employees = {
         firstName,
         lastName,
@@ -86,7 +95,7 @@ const displayEmployees = function(employeesArray) {
 
     const salaryCell = document.createElement("td");
     // Format the salary as currency
-    salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US", {
+    salaryCell.innerHTML = currentEmployee.salary.toLocaleString("en-US", {
       style: "currency",
       currency: "USD"
     });
